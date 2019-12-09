@@ -21,16 +21,25 @@ import org.mozilla.universalchardet.UniversalDetector;
 
 public class MyCrawler extends WebCrawler {
 
+    MyConfig local_config = MyConfig.getInstance();
+    
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    private Pattern OK_FILTERS = Pattern.compile(".*(\\.(text|txt|html|htm|yaml|yml|csv|json))$", Pattern.CASE_INSENSITIVE);
-    private Pattern VISIT_ALLOW_FILTER = Pattern.compile("^https?://www\\.yasundial\\.org/old/.+", Pattern.CASE_INSENSITIVE);
+    private Pattern OK_FILTERS = null;
+    private Pattern VISIT_ALLOW_FILTER = null;
 
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String hrefUrl = url.getURL();
+	if(OK_FILTERS == null) {
+	    OK_FILTERS = Pattern.compile(local_config.getString("OK_FILTER"), Pattern.CASE_INSENSITIVE);
+	}
         if(! OK_FILTERS.matcher(hrefUrl).matches()) {
             return false;
         }
+	if(VISIT_ALLOW_FILTER == null) {
+	    VISIT_ALLOW_FILTER = Pattern.compile(local_config.getString("VISIT_URL_PATTERN"), Pattern.CASE_INSENSITIVE);
+	}
+	logger.info("hrefUrl: {} compared with {}", hrefUrl, local_config.getString("VISIT_URL_PATTERN"));
         return VISIT_ALLOW_FILTER.matcher(hrefUrl).matches();
     }
     
