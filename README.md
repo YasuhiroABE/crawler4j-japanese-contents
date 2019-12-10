@@ -1,7 +1,6 @@
 # Sample Crawling Application for Japanese Contents
 
-This is an Sample application to crawl Japanese contents encoded in EUC-JP, Shift-JIS, and UTF-8
-using the org.mozilla.universalchardet.UniversalDetector and Crawler4j.
+This is an sample application to crawl Japanese contents encoded in various methods, such as EUC-JP, Shift-JIS, and ISO-2022JP, using the org.mozilla.universalchardet.UniversalDetector and Crawler4j.
 
 # References
 
