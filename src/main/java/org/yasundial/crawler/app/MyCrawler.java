@@ -60,10 +60,10 @@ public class MyCrawler extends WebCrawler {
         }
 
 	String html = "";
-	byte[] dataByte = page.getContentData(); // TODO: should be replaced with buf[].
+	logger.info("size of buf: {}", buf.length);
 	try {
 	    if(detectCharset != null) {
-		html = new String(dataByte, detectCharset);
+		html = new String(buf, detectCharset);
 	    }
 	} catch(java.io.UnsupportedEncodingException e) {
 	    logger.warn(e.toString());
