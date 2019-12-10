@@ -1,0 +1,9 @@
+<configuration debug="true">
+  <appender name="NULL" class="ch.qos.logback.core.FileAppender">
+    <file>/dev/null</file>
+  </appender>
+  
+  <root level="DEBUG" additivity="false">
+    <appender-ref ref="NULL" />
+  </root>
+</configuration>
