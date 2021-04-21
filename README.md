@@ -9,13 +9,13 @@ This is a sample application to crawl Japanese contents encoded in various metho
 
 # How to run
 
-	# update TARGET_URL and VISIT_URL_PATTERN of config.properties
-	$ mvn compile
+    # update TARGET_URL and VISIT_URL_PATTERN of config.properties
+    $ mvn compile
     $ mvn exec:java 
 	
 Or, you can use environment variables to overwrite the config.properties file.
 
     $ env TARGET_URL="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
-          VISIT_URL_PATTERN="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
-      mvn exec:java
+        VISIT_URL_PATTERN="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
+        mvn exec:java
 
