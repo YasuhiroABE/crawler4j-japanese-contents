@@ -1,10 +1,10 @@
 package org.yasundial.crawler.app;
 
-import edu.uci.ics.crawler4j.crawler.CrawlConfig;
-import edu.uci.ics.crawler4j.crawler.CrawlController;
-import edu.uci.ics.crawler4j.fetcher.PageFetcher;
-import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
-import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
+import com.goikosoft.crawler4j.crawler.CrawlConfig;
+import com.goikosoft.crawler4j.crawler.CrawlController;
+import com.goikosoft.crawler4j.fetcher.PageFetcher;
+import com.goikosoft.crawler4j.robotstxt.RobotstxtConfig;
+import com.goikosoft.crawler4j.robotstxt.RobotstxtServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
