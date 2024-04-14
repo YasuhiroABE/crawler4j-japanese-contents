@@ -54,7 +54,7 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.3.0</version>
+            <version>1.3.1</version>
             <scope>provided</scope>
         </dependency>
         <!-- Google's Encoding Auto Detector: https://qiita.com/aaaanwz/items/1554afadc44cb5cf3a80 -->
