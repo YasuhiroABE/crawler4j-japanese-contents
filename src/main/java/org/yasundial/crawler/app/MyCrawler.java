@@ -70,5 +70,12 @@ public class MyCrawler extends WebCrawler {
 	Document jsoupDoc = Jsoup.parse(html);
 	System.out.println("title: " + jsoupDoc.title());
 	System.out.println(" text: " + jsoupDoc.select("body").text());
+
+	// Supported Codes for Apache Solr
+	Map<String,Object> document = new LinkedHashMap<>();
+	document.put("id", url);
+	document.put("content", jsoupDoc.select("body").text());
+	MySolr.getInstance().addDocument(document);
+	MySolr.getInstance().commit();
     }
 }

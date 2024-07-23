@@ -89,5 +89,12 @@
       <artifactId>commons-beanutils</artifactId>
       <version>1.9.4</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.solr/solr-solrj -->
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+      <version>9.6.1</version>
+    </dependency>
   </dependencies>
 </project>
