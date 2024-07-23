@@ -1,6 +1,6 @@
 ## deploying for production
 
-FROM docker.io/library/eclipse-temurin:17-jre-alpine
+FROM docker.io/library/eclipse-temurin:21-jre-alpine
 
 RUN apk update && \
     apk add --no-cache tzdata bash ca-certificates
