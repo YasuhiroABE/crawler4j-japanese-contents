@@ -2,4 +2,5 @@
 /data
 /target
 /.idea
-dependency-reduced-pom.xml
+/dependency-reduced-pom.xml
+/crawlerdemo-1.0-SNAPSHOT

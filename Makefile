@@ -46,3 +46,12 @@ docker-tag:
 .PHONY: docker-push
 docker-push:
 	$(DOCKER_CMD) push $(REGISTRY_SERVER)/$(REGISTRY_LIBRARY)/$(IMAGE_NAME):$(IMAGE_VERSION)
+
+.PHONY: native-image
+native-image: install
+	native-image -jar target/crawlerdemo-1.0-SNAPSHOT.jar
+
+.PHONY: native-run
+native-run:
+	env TARGET_URL="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
+		VISIT_URL_PATTERN="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
