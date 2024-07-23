@@ -11,7 +11,7 @@ import java.io.File;
 
 public class MyConfig {
     private final String CONFIG_FILENAME = "config.properties";
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger(MyConfig.class);
     private Configuration config;
     
     private static final MyConfig INSTANCE = new MyConfig();

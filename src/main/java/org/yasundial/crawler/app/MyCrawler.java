@@ -22,7 +22,7 @@ import org.mozilla.universalchardet.UniversalDetector;
 public class MyCrawler extends WebCrawler {
 
     MyConfig local_config = MyConfig.getInstance();
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger(MyCrawler.class);
     private Pattern OK_FILTERS = null;
     private Pattern VISIT_ALLOW_FILTER = null;
 
