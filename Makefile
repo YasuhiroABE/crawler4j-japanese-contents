@@ -1,14 +1,13 @@
 
 DOCKER_CMD = podman
 IMAGE_NAME = solr-crawler
-IMAGE_VERSION = 1.1.0
+IMAGE_VERSION = 1.1.1
 REGISTRY_SERVER = inovtst9.u-aizu.ac.jp
 REGISTRY_LIBRARY = library
 
 .PHONY: clean
 clean:
 	find . -name '*~' -exec rm {} \; -print
-
 
 .PHONY: run
 run:
