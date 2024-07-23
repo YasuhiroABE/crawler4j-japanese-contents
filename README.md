@@ -11,6 +11,7 @@ This is a sample application to crawl Japanese contents encoded in various metho
 
     # update TARGET_URL and VISIT_URL_PATTERN of config.properties
     $ mvn compile
+    $ mvn install
     $ mvn exec:java 
 	
 Or, you can use environment variables to overwrite the config.properties file.
