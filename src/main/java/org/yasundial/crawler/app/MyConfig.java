@@ -3,14 +3,15 @@ package org.yasundial.crawler.app;
 import org.apache.commons.configuration2.Configuration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.io.File;
 
 public class MyConfig {
     private final String CONFIG_FILENAME = "config.properties";
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LogManager.getLogger();
     private Configuration config;
     
     private static final MyConfig INSTANCE = new MyConfig();

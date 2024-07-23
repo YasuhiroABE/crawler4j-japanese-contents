@@ -5,8 +5,6 @@ import com.goikosoft.crawler4j.crawler.CrawlController;
 import com.goikosoft.crawler4j.fetcher.PageFetcher;
 import com.goikosoft.crawler4j.robotstxt.RobotstxtConfig;
 import com.goikosoft.crawler4j.robotstxt.RobotstxtServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /*
  * References: https://github.com/yasserg/crawler4j

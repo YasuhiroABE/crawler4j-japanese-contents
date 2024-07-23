@@ -14,16 +14,15 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.mozilla.universalchardet.UniversalDetector;
 
 public class MyCrawler extends WebCrawler {
 
     MyConfig local_config = MyConfig.getInstance();
-    
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LogManager.getLogger();
     private Pattern OK_FILTERS = null;
     private Pattern VISIT_ALLOW_FILTER = null;
 
