@@ -5,11 +5,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import com.goikosoft.crawler4j.crawler.Page;
-import com.goikosoft.crawler4j.crawler.WebCrawler;
-import com.goikosoft.crawler4j.parser.HtmlParseData;
-import com.goikosoft.crawler4j.parser.TextParseData;
-import com.goikosoft.crawler4j.url.WebURL;
+import edu.uci.ics.crawler4j.crawler.Page;
+import edu.uci.ics.crawler4j.crawler.WebCrawler;
+import edu.uci.ics.crawler4j.parser.HtmlParseData;
+import edu.uci.ics.crawler4j.parser.TextParseData;
+import edu.uci.ics.crawler4j.url.WebURL;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
