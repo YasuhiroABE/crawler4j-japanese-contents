@@ -70,9 +70,9 @@
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.goikosoft.crawler4j/crawler4j -->
     <dependency>
-      <groupId>com.goikosoft.crawler4j</groupId>
+      <groupId>io.github.yasuhiroabe</groupId>
       <artifactId>crawler4j</artifactId>
-      <version>4.5.11</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.jsoup</groupId>
