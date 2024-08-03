@@ -68,7 +68,7 @@
       <artifactId>juniversalchardet</artifactId>
       <version>1.0.3</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.goikosoft.crawler4j/crawler4j -->
+
     <dependency>
       <groupId>io.github.yasuhiroabe</groupId>
       <artifactId>crawler4j</artifactId>
