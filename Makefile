@@ -1,7 +1,7 @@
 
 DOCKER_CMD = podman
 IMAGE_NAME = solr-crawler
-IMAGE_VERSION = 1.1.2
+IMAGE_VERSION = 2.0.1
 REGISTRY_SERVER = inovtst9.u-aizu.ac.jp
 REGISTRY_LIBRARY = library
 
