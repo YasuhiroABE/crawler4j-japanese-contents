@@ -7,6 +7,9 @@
   <groupId>org.yasundial.crawler.app</groupId>
   <artifactId>crawlerdemo</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <build>
     <plugins>
       <plugin>
@@ -45,6 +48,18 @@
             </configuration>
           </execution>
         </executions>
+	<configuration>
+	  <filters>
+	    <filter>
+	      <artifact>*:*</artifact>
+	      <excludes>
+		<exclude>META-INF/*.SF</exclude>
+		<exclude>META-INF/*.DSA</exclude>
+		<exclude>META-INF/*.RSA</exclude>
+	      </excludes>
+	    </filter>
+	  </filters>
+	</configuration>
       </plugin>
     </plugins>
   </build>
@@ -72,7 +87,7 @@
     <dependency>
       <groupId>io.github.yasuhiroabe</groupId>
       <artifactId>crawler4j</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.jsoup</groupId>
