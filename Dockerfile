@@ -21,8 +21,6 @@ RUN mkdir /jobs/data
 RUN addgroup crawler
 RUN adduser -S -G crawler crawler
 RUN chown crawler /jobs/data
-RUN chgrp -R crawler /jobs
-RUN chmod -R g+rwX /jobs
 USER crawler
 
 ENTRYPOINT ["./run.sh"]
