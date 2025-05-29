@@ -1,6 +1,6 @@
 # Sample Crawling Application for Japanese Contents
 
-This is a sample application to crawl Japanese contents encoded in various methods, such as EUC-JP, Shift-JIS, and ISO-2022JP, using the org.mozilla.universalchardet.UniversalDetector and Crawler4j.
+This is a sample application for crawling Japanese web content encoded in various character sets, such as EUC-JP, Shift-JIS, and ISO-2022JP, using org.mozilla.universalchardet.UniversalDetector and Crawler4j.
 
 # References
 
@@ -12,12 +12,13 @@ The original version of crawler4j was developed by Yasser Ganjisaffar, https://g
 # Prerequisites
 
 * JRE (Java) 21+
+* Maven (mvn)
 
 # How to run
 
-## Using the config.properties
+## Using config.properties
 
-Basically, this application uses the config.properties by default.
+By default, this application uses the config.properties file.
 
 ```
 # update TARGET_URL and VISIT_URL_PATTERN of config.properties
@@ -26,7 +27,7 @@ $ mvn install
 $ mvn exec:java 
 ```
 
-If you have a GNU make command, you
+If you have GNU Make installed, you can run the same tasks as follows:
 
 ```
 $ make compile
@@ -34,9 +35,9 @@ $ make install
 $ make run
 ```
 
-## Using the environment variable
+## Using environment variable
 
-you can use environment variables to overwrite the config.properties file.
+You can override values in config.properties using environment variables.
 
 ```
 $ env TARGET_URL="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
@@ -44,13 +45,13 @@ $ env TARGET_URL="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%8
     mvn exec:java
 ```
 
-Otherwise, you can simply execute the following command.
+Alternatively, you can run the same task with GNU Make:
 
 ```
 $ make run
 ```
 
-Please see the run task of Makefile.
+Please refer to the run task in the Makefile for details.
 
 # Configuration
 
@@ -72,29 +73,27 @@ OK_FILTER=.*(\\.(text|txt|html|htm|yaml|yml|csv|json)|/)$
 
 ## TARGET_URL
 
-It is the landing page URL to start the crawling.
+The landing page URL where crawling starts.
 
 ## VISIT_URL_PATTERN
 
-It is the Java Regex text and uses for the detection of next crawling pages.
+A Java regex used to identify which URLs should be followed for further crawling.
 
-It will assess URLs obtained from web pages that have been crawled.
-
-If the Matcher::find method returns true through the assessment process, then the URL is crawled as the next page.
+The crawler assesses URLs obtained from crawled pages, and if Matcher::find returns true, the URL is added to the crawling queue.
 
 ## CRAWLER4J_STORAGE_DIR
 
-This directory will be used for the internal database storage to store the temporary status.
+The directory used for the internal database to store temporary crawl states.
 
 For typical use cases, the path doesn't need to be changed.
 
 ## OK_FILTER
 
-This parameter will be used as well as the VISIT_URL_PATTERN to assess each obtained URL.
+This regex works alongside ``VISIT_URL_PATTERN`` to filter URLs.
 
-The purpose of this parameter is to reduce the unnecessary access, such as .css and .js files.
+Its purpose is to reduce unnecessary requests (e.g., skipping .css and .js files).
 
-If you would like to collect the PDF file, you can change this parameter as follows.
+If you want to include PDF files, modify it like this:
 
 ```
 OK_FILTER=.*(\\.(text|txt|html|htm|yaml|yml|csv|json|pdf)|/)$
@@ -104,7 +103,7 @@ OK_FILTER=.*(\\.(text|txt|html|htm|yaml|yml|csv|json|pdf)|/)$
 
 The default container engine used is `podman`.
 
-If you prefer to use the ``docker`` command, you can modify the Makefile or set the DOCKER_CMD environment variable:
+If you prefer to use the ``docker`` command instead, you can modify the Makefile or set the DOCKER_CMD environment variable:
 
 ```
 ## To edit the Makefile
@@ -114,13 +113,15 @@ DOCKER_CMD ?= docker
 $ make DOCKER_CMD=docker docker-build
 ```
 
-There are some variables on the Makefile file, please overrite them for your environment.
+Several variables are defined in the Makefile, for example:
 
 * DOCKER_OPT - Additional command line parameter, especially, if you use the SELinux on RHEL, please specify the `--security-opt label=disable` option to this variable.
 
+Please adjust them as needed for your environment.
+
 ## Getting Started
 
-To build and test your container image, execute the following commands:
+To build and test your container image:
 
 ```
 $ make docker-build
@@ -129,7 +130,7 @@ $ make docker-run
 
 ## Pushing Your Container Image to a Registry Server
 
-To push your container image to a registry server, such as hub.docker.com, run the commands as follows:
+To push your container image to a container registry, such as Docker Hub:
 
 ```
 $ make docker-build-prod
@@ -139,11 +140,11 @@ $ make docker-push
 
 Before doing this, ensure the `REGISTRY_LIBRARY` varialbe in the  Makefile file is set to your username on hub.docker.com.
 
-If you would like to change the registry server, you can edit the Makefile file.
+To change the target registry, edit the Makefile accordingly.
 
 ## Apple Silicon and other ARM Processors
 
-For ARM based CPUs, update the DOCKER_PLATFORM variable as shown below:
+For ARM based CPUs, update the DOCKER_PLATFORM variable:
 
 ```
 DOCKER_PLATFORM ?= linux/arm64
@@ -151,7 +152,7 @@ DOCKER_PLATFORM ?= linux/arm64
 
 Then, run the make command as usual.
 
-Otherwise, you can use the command line parameter as follows:
+Alternatively, you can specify it at runtime:
 
 ```
 $ make DOCKER_PLATFORM=linux/arm64 docker-build
@@ -159,7 +160,7 @@ $ make DOCKER_PLATFORM=linux/arm64 docker-build
 
 ## Multiple Architecture Build
 
-The multi-architecture build process depends on the container engine you are using.
+The multi-architecture build process depends on your container engine.
 
 For `docker`, use the tasks of the `docker-buildx-` prefix.
 
