@@ -4,3 +4,4 @@
 /.idea
 /dependency-reduced-pom.xml
 /crawlerdemo-1.0-SNAPSHOT
+derby.log
