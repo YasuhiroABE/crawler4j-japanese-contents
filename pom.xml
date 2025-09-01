@@ -87,7 +87,7 @@
     <dependency>
       <groupId>io.github.yasuhiroabe</groupId>
       <artifactId>crawler4j</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.jsoup</groupId>
@@ -104,5 +104,7 @@
       <artifactId>commons-beanutils</artifactId>
       <version>1.11.0</version>
     </dependency>
+
+
   </dependencies>
 </project>
