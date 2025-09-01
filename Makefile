@@ -22,6 +22,10 @@ clean:
 compile: clean
 	mvn compile
 
+.PHONY: package
+package:
+	mvn package
+
 .PHONY: install
 install:
 	mvn install
