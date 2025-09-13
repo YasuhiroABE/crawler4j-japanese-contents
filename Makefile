@@ -5,9 +5,9 @@ DOCKER_BUILDER ?= mabuilder
 DOCKER_PLATFORM ?= linux/amd64
 DOCKER_PLATFORMS ?= linux/amd64,linux/arm64
 
-NAME ?= solr-crawler
-DOCKER_IMAGE_VERSION ?= latest
-IMAGE_NAME := $(NAME):$(DOCKER_IMAGE_VERSION)
+SHORT_NAME ?= solr-crawler
+DOCKER_IMAGE_VERSION ?= 20250912.1000
+IMAGE_NAME := $(SHORT_NAME):$(DOCKER_IMAGE_VERSION)
 
 REGISTRY_SERVER ?= docker.io
 REGISTRY_LIBRARY ?= $(shell id -un)
@@ -41,11 +41,11 @@ docker-run:
 	$(DOCKER_CMD) run --rm -it $(DOCKER_OPT) \
 		--env TARGET_URL="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
 		--env VISIT_URL_PATTERN="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9" \
-		$(NAME)
+		$(SHORT_NAME)
 
 .PHONY: docker-build
 docker-build: install
-	$(DOCKER_CMD) build . --tag $(NAME) --platform $(DOCKER_PLATFORM) $(DOCKER_OPT)
+	$(DOCKER_CMD) build . --tag $(SHORT_NAME) --platform $(DOCKER_PLATFORM) $(DOCKER_OPT)
 
 .PHONY: docker-build-prod
 docker-build-prod: install
@@ -84,11 +84,12 @@ podman-buildx-init:
 
 .PHONY: podman-buildx
 podman-buildx:
-	$(DOCKER_CMD) build . $(DOCKER_OPT) --tag $(DOCKER_IMAGE) --platform $(DOCKER_PLATFORMS)
+	$(DOCKER_CMD) build . $(DOCKER_OPT) --tag $(IMAGE_NAME) --platform $(DOCKER_PLATFORMS)
 
 .PHONY: podman-buildx-prod
 podman-buildx-prod:
-	$(DOCKER_CMD) manifest $(DOCKER_OPT) rm $(PROD_IMAGE_NAME) || true
+	$(DOCKER_CMD) $(DOCKER_OPT) rmi $(PROD_IMAGE_NAME) || true
+	$(DOCKER_CMD) $(DOCKER_OPT) rmi $(IMAGE_NAME) || true
 	$(DOCKER_CMD) build . $(DOCKER_OPT) --pull --no-cache --platform $(DOCKER_PLATFORMS) --manifest $(IMAGE_NAME)
 
 .PHONY: podman-buildx-push
