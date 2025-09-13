@@ -1,0 +1,6 @@
+
+DOCKER_CMD=podman
+DOCKER_IMAGE_VERSION=latest
+REGISTRY_SERVER=docker.io
+REGISTRY_LIBRARY=$(id -un)
+
