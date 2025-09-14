@@ -1,6 +1,6 @@
 
-DOCKER_CMD=podman
-DOCKER_IMAGE_VERSION=latest
-REGISTRY_SERVER=docker.io
-REGISTRY_LIBRARY=$(id -un)
+export DOCKER_CMD=podman
+export DOCKER_IMAGE_VERSION=latest
+export REGISTRY_SERVER=docker.io
+export REGISTRY_LIBRARY=$(id -un)
 
